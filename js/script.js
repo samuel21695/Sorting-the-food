@@ -12,6 +12,12 @@ const noButton = document.getElementById('no');
 let currentIndex = 0;
 
 function randomFood() {
+  if (foodImages.length === 0) {
+    foodImageElement.innerHTML = "끝"; // 더 이상 출력할 것이 없는 경우 "끝" 출력
+    yesButton.disabled = true; // "YES" 버튼 비활성화
+    noButton.disabled = true; // "no" 버튼 비활성화
+  }
+  
   const randomIndex = Math.floor(Math.random() * foodImages.length);
   const randomFoodImage = foodImages[randomIndex];
   foodImageElement.innerHTML = randomFoodImage;
@@ -28,7 +34,7 @@ yesButton.addEventListener('click', () => {
   likeFoodsElement.innerHTML += currentImage;
 
   // 이미 처리한 이미지 배열에서 제거
-  foodImages.splice(currentImage, 1);
+  foodImages.splice(currentIndex, 1);
   randomFood();
 });
 
