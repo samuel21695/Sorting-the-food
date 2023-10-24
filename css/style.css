@@ -27,3 +27,18 @@ body {
   flex: 1;
   max-width: 100%;
 }
+
+.button {
+  display: inline-block;
+  width: 100px;
+}
+
+#yes {
+  background-color: green;
+  color: white;
+}
+
+#no {
+  background-color: red;
+  color: white;
+}
