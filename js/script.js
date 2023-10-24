@@ -15,7 +15,8 @@ function randomFood() {
   if (foodImages.length === 0) {
     foodImageElement.innerHTML = "끝"; // 더 이상 출력할 것이 없는 경우 "끝" 출력
     yesButton.disabled = true; // "YES" 버튼 비활성화
-    noButton.disabled = true; // "no" 버튼 비활성화
+    noButton.disabled = true; // "no" 버튼 비활성화w
+    return;
   }
   
   const randomIndex = Math.floor(Math.random() * foodImages.length);
