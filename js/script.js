@@ -21,7 +21,13 @@ function randomFood() {
 randomFood();
 
 yesButton.addEventListener('click', () => {
+  if (foodImages.length === 0) {
+    return;
+  }
   const currentImage = foodImages[currentIndex];
   likeFoodsElement.innerHTML += currentImage;
+
+  // 이미 처리한 이미지 배열에서 제거
+  foodImages.splice(currentImage, 1);
   randomFood();
 });
