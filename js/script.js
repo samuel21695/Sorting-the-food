@@ -27,7 +27,7 @@ function randomFood() {
 
 randomFood();
 
-yesButton.addEventListener('click', () => {
+function yesbuttonClick () {
   if (foodImages.length === 0) {
     return;
   }
@@ -37,9 +37,9 @@ yesButton.addEventListener('click', () => {
   // 이미 처리한 이미지 배열에서 제거
   foodImages.splice(currentIndex, 1);
   randomFood();
-});
+};
 
-noButton.addEventListener('click', () => {
+function noButtonClick () {
   if (foodImages.length === 0) {
     return;
   }
@@ -49,4 +49,10 @@ noButton.addEventListener('click', () => {
   // 이미 처리한 이미지 배열에서 제거
   foodImages.splice(currentImage, 1);
   randomFood();
-});
+}
+
+// "YES" 버튼 클릭 이벤트 리스너 등록
+yesButton.addEventListener('click', yesbuttonClick);
+
+// "NO" 버튼 클릭 이벤트 리스너 등록
+noButton.addEventListener('click', noButtonClick);
