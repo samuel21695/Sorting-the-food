@@ -7,7 +7,7 @@ const foodImageElement = document.getElementById('food-image');
 const likeFoodsElement = document.getElementById('like-foods');
 const dislikeFoodsElement = document.getElementById('dislike-foods');
 const yesButton = document.getElementById('yes');
-const noButton = document.getElementById('no-button');
+const noButton = document.getElementById('no');
 
 let currentIndex = 0;
 
@@ -26,6 +26,18 @@ yesButton.addEventListener('click', () => {
   }
   const currentImage = foodImages[currentIndex];
   likeFoodsElement.innerHTML += currentImage;
+
+  // 이미 처리한 이미지 배열에서 제거
+  foodImages.splice(currentImage, 1);
+  randomFood();
+});
+
+noButton.addEventListener('click', () => {
+  if (foodImages.length === 0) {
+    return;
+  }
+  const currentImage = foodImages[currentIndex];
+  dislikeFoodsElement.innerHTML += currentImage;
 
   // 이미 처리한 이미지 배열에서 제거
   foodImages.splice(currentImage, 1);
