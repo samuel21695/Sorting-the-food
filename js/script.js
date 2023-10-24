@@ -2,3 +2,9 @@ const foodImages = [
   '🍕', '🍔', '🍟', '🌭', '🍿', '🧂', '🥓', '🥚'
   // 원하는 만큼 음식 추가
 ]
+
+const foodImageElement = document.getElementById('food-image');
+const likeFoodsElement = document.getElementById('like-foods');
+const dislikeFoodsElement = document.getElementById('dislike-foods');
+const yesButton = document.getElementById('yes-button');
+const noButton = document.getElementById('no-button');
