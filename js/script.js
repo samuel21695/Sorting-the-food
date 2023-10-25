@@ -11,22 +11,6 @@ const noButton = document.getElementById('no');
 
 let currentIndex = 0;
 
-function randomFood() {
-  if (foodImages.length === 0) {
-    foodImageElement.innerHTML = "끝"; // 더 이상 출력할 것이 없는 경우 "끝" 출력
-    yesButton.disabled = true; // "YES" 버튼 비활성화
-    noButton.disabled = true; // "no" 버튼 비활성화
-    return;
-  }
-  
-  const randomIndex = Math.floor(Math.random() * foodImages.length);
-  const randomFoodImage = foodImages[randomIndex];
-  foodImageElement.innerHTML = randomFoodImage;
-  currentIndex = randomIndex;
-}
-
-randomFood();
-
 function yesbuttonClick () {
   if (foodImages.length === 0) {
     return;
@@ -37,6 +21,7 @@ function yesbuttonClick () {
   // 이미 처리한 이미지 배열에서 제거
   foodImages.splice(currentIndex, 1);
   randomFood();
+  console.log(foodImages);
 };
 
 function noButtonClick () {
@@ -49,7 +34,27 @@ function noButtonClick () {
   // 이미 처리한 이미지 배열에서 제거
   foodImages.splice(currentImage, 1);
   randomFood();
+  console.log(foodImages);
 }
+
+function randomFood() {
+  if (foodImages.length === 0) {
+    foodImageElement.innerHTML = "끝"; // 더 이상 출력할 것이 없는 경우 "끝" 출력
+    yesButton.disabled = true; // "YES" 버튼 비활성화
+    noButton.disabled = true; // "no" 버튼 비활성화
+    return;
+  }
+  
+  const randomIndex = Math.floor(Math.random() * foodImages.length);
+  const randomFoodImage = foodImages[randomIndex];
+  foodImageElement.innerHTML = randomFoodImage;
+  currentIndex = randomIndex;
+
+  // "YES" 버튼과 "No" 버튼 활성화
+}
+
+randomFood();
+
 
 // "YES" 버튼 클릭 이벤트 리스너 등록
 yesButton.addEventListener('click', yesbuttonClick);
