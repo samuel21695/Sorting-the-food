@@ -11,32 +11,6 @@ const noButton = document.getElementById('no');
 
 let currentIndex = 0;
 
-function yesbuttonClick () {
-  if (foodImages.length === 0) {
-    return;
-  }
-  const currentImage = foodImages[currentIndex];
-  likeFoodsElement.innerHTML += currentImage;
-
-  // 이미 처리한 이미지 배열에서 제거
-  foodImages.splice(currentIndex, 1);
-  randomFood();
-  console.log(foodImages);
-};
-
-function noButtonClick () {
-  if (foodImages.length === 0) {
-    return;
-  }
-  const currentImage = foodImages[currentIndex];
-  dislikeFoodsElement.innerHTML += currentImage;
-
-  // 이미 처리한 이미지 배열에서 제거
-  foodImages.splice(currentImage, 1);
-  randomFood();
-  console.log(foodImages);
-}
-
 function randomFood() {
   if (foodImages.length === 0) {
     foodImageElement.innerHTML = "끝"; // 더 이상 출력할 것이 없는 경우 "끝" 출력
@@ -49,12 +23,33 @@ function randomFood() {
   const randomFoodImage = foodImages[randomIndex];
   foodImageElement.innerHTML = randomFoodImage;
   currentIndex = randomIndex;
-
-  // "YES" 버튼과 "No" 버튼 활성화
 }
 
 randomFood();
 
+function yesbuttonClick () {
+  if (foodImages.length === 0) {
+    return;
+  }
+  const currentImage = foodImages[currentIndex];
+  likeFoodsElement.innerHTML += currentImage;
+
+  // 이미 처리한 이미지 배열에서 제거
+  foodImages.splice(currentIndex, 1);
+  randomFood();
+};
+
+function noButtonClick () {
+  if (foodImages.length === 0) {
+    return;
+  }
+  const currentImage = foodImages[currentIndex];
+  dislikeFoodsElement.innerHTML += currentImage;
+
+  // 이미 처리한 이미지 배열에서 제거
+  foodImages.splice(currentImage, 1);
+  randomFood();
+}
 
 // "YES" 버튼 클릭 이벤트 리스너 등록
 yesButton.addEventListener('click', yesbuttonClick);
