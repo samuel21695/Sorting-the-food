@@ -27,9 +27,9 @@ function randomFood() {
 
 randomFood();
 
-// yesㅠuttonClick과 noButtonClick의 기능 하나로 합침
+// yesButtonClick과 noButtonClick의 기능 하나로 합침
 function buttonClick(button) {
-  if (foodImage.length === 0) {
+  if (foodImages.length === 0) {
     return;
   }
   const currentImage = foodImages[currentIndex];
@@ -45,27 +45,11 @@ function buttonClick(button) {
 }
 
 function yesbuttonClick () {
-  if (foodImages.length === 0) {
-    return;
-  }
-  const currentImage = foodImages[currentIndex];
-  likeFoodsElement.innerHTML += currentImage;
-
-  // 이미 처리한 이미지 배열에서 제거
-  foodImages.splice(currentIndex, 1);
-  randomFood();
+  buttonClick(true);
 };
 
 function noButtonClick () {
-  if (foodImages.length === 0) {
-    return;
-  }
-  const currentImage = foodImages[currentIndex];
-  dislikeFoodsElement.innerHTML += currentImage;
-
-  // 이미 처리한 이미지 배열에서 제거
-  foodImages.splice(currentImage, 1);
-  randomFood();
+  buttonClick(false);
 }
 
 // "YES" 버튼 클릭 이벤트 리스너 등록
