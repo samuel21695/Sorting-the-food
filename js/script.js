@@ -27,6 +27,23 @@ function randomFood() {
 
 randomFood();
 
+// yesㅠuttonClick과 noButtonClick의 기능 하나로 합침
+function buttonClick(button) {
+  if (foodImage.length === 0) {
+    return;
+  }
+  const currentImage = foodImages[currentIndex];
+
+  if (button) {
+    likeFoodsElement.innerHTML += currentImage;
+  } else {
+    dislikeFoodsElement.innerHTML += currentImage;
+  }
+
+  foodImages.splice(currentIndex, 1);
+  randomFood();
+}
+
 function yesbuttonClick () {
   if (foodImages.length === 0) {
     return;
