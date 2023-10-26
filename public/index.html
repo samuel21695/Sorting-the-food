@@ -43,6 +43,7 @@ body {
   flex: 1;
   max-width: 100%;
   font-size: 10rem;
+  margin-bottom: 3vh;
 }
 
 .button {
@@ -102,7 +103,7 @@ body {
   
   function randomFood() {
     if (foodImages.length === 0) {
-      foodImageElement.innerHTML = "X"; // 더 이상 출력할 것이 없는 경우 "끝" 출력
+      foodImageElement.innerHTML = "😋"; // 더 이상 출력할 것이 없는 경우 "끝" 출력
       yesButton.disabled = true; // "YES" 버튼 비활성화
       noButton.disabled = true; // "no" 버튼 비활성화
       return;
