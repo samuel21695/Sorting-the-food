@@ -39,6 +39,10 @@ body {
   overflow-y: auto;
 }
 
+#text {
+  font-size: 32px;
+}
+
 #food-image {
   flex: 1;
   max-width: 100%;
@@ -71,6 +75,7 @@ body {
       </div>
     </div>
     <div>
+      <p id="text"></p>
       <div id="food-image">
         <!-- 동적으로 음식 사진 변경 -->
       </div>
@@ -98,12 +103,14 @@ body {
   const dislikeFoodsElement = document.getElementById('dislike-foods');
   const yesButton = document.getElementById('yes');
   const noButton = document.getElementById('no');
+  const text = document.getElementById('text')
   
   let currentIndex = 0;
   
   function randomFood() {
     if (foodImages.length === 0) {
       foodImageElement.innerHTML = "😋"; // 더 이상 출력할 것이 없는 경우 "끝" 출력
+      text.innerHTML = `"YUM"` // 더 이상 출력할 것이 없는 경우 텍스트 추가
       yesButton.disabled = true; // "YES" 버튼 비활성화
       noButton.disabled = true; // "no" 버튼 비활성화
       return;
